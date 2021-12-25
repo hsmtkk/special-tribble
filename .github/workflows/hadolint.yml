@@ -1,0 +1,11 @@
+---
+name: hadolint
+on: [push]  # yamllint disable-line rule:truthy
+jobs:
+  hadolint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 
+      - uses: hadolint/hadolint-action@v1.6.0
+        with:
+          dockerfile: Dockerfile
