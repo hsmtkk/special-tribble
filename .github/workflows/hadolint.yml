@@ -1,6 +1,6 @@
 ---
 name: hadolint
-on: [push]  # yamllint disable-line rule:truthy
+on: [push] # yamllint disable-line rule:truthy
 jobs:
   hadolint:
     runs-on: ubuntu-latest
