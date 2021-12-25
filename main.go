@@ -24,7 +24,7 @@ func main() {
 	addr := fmt.Sprintf("0.0.0.0:%d", httpPort)
 
 	logConfig := zap.NewDevelopmentConfig()
-	logConfig.OutputPaths = []string{"stdout", "/tmp/log"}
+	logConfig.OutputPaths = []string{"/tmp/log"}
 	logger, err := logConfig.Build()
 	if err != nil {
 		log.Fatalf("failed to build logger; %v", err)
@@ -32,7 +32,7 @@ func main() {
 	defer logger.Sync()
 	sugar := logger.Sugar()
 
-	sugar.Info("starting server at %s", addr)
+	sugar.Infof("starting server at %s", addr)
 
 	var handler handler = &myHandler{sugar}
 
